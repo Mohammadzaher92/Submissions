@@ -63,9 +63,8 @@ header{
      "hobbies1  hobbies1 "
     ;
 }
-#contact {
-    visibility: hidden;
-}
+
+
 #about{
     grid-area: about1;
 }
@@ -190,54 +189,51 @@ h4{
     top: 4px;
     left: 3px;
 }
-@media (max-width:700px){
-
-    .content{
-        width: 700px;
-        margin: 0 auto 0 auto;
-        display: grid;
-        grid-template-columns: br;
-        grid-template-rows: br br br;
-        grid-template-areas: 
-        "about1"
-        "competencies1"
-        "education1"
-        ;
-    }
-    #\#wrapper{
-        position: relative;
-        top: 0;
-        margin: 0 auto 0 auto;
-    }
-    hgroup{
-        position:absolute;
-        margin:20px 0 0 20px;
-        color: red;
-    }
-    figure{
-        padding: 140px 0 0 20px;
-        
-    }
-    header{
-        background-color: grey;
-        margin: 0 auto 0 auto;
-        height: 300px;
-    }
-    #about{
-        grid-area: about1;
-        width: 600px;
-       
-    }#experiences{
+@media (max-width:600px){
+    figure, #hobbies, #contact{
         visibility: hidden;
     }
-    .content{
-        height: 100px;
-        width: 700px;   
-    }
-    #contact{
-        visibility: hidden;
-    }
-    #hobbies{
-        visibility: hidden;
-    }
+    #about p{
+      width: 100%;
+      font-style: italic;
+      color:grey;    
+      font-size: 20px;
+      text-align: justify;
+  }
+  #competencies h3{
+      visibility: hidden;
+      padding-bottom: 10px;
+      width: 400px;
+      height: 30px;
+      border-right: none;
+      border-bottom: 2px solid black;
+  }
+  #experiences h3{
+      border-right: none;
+      border-bottom: 2px solid black;
+  }
+  .skill{
+      margin:5px;
+     float: left;
+  }
+  #experiences h3{
+      margin-top: 30px;
+      width: 600px;
+      height: 30px;;
+  }
+  .experience{
+      float: left;
+      padding-left: 0;
+      padding-top: 10px;
+  }
+  .experience-details{
+      padding-left: 330px;
+  }
+  #education h3{
+      border-right: none;
+      border-bottom: 2px solid black;
+      height: 30px;
+      width: 600px;
+  }
+ 
 }
