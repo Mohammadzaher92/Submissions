@@ -7,6 +7,5 @@ z.addEventListener("keyup",popcorn);
 function popcorn (){
 x.innerHTML=z.value;
 
-
-
 }
+
