@@ -14,7 +14,7 @@ function myFunction(ev){
     if (ev.target.id == "image1")
     {    ev.target.src = "images/image1_2.jpg" 
     
-
+var pic1 =document.querySelector("image1")
 }
 else if(ev.target.id == "image2"){
 ev.target.src = "images/image2_2.jpg"
