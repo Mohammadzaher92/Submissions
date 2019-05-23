@@ -6,8 +6,8 @@ function cle()
 var yes ;
 if(confirm("yes or no")){
 yes=document.getElementById("name").value = " ";
-document.getElementById("surname").value=" " ;
-document.getElementById("city").value= " ";
+yes=document.getElementById("surname").value=" " ;
+yes=document.getElementById("city").value= " ";
 
 
 

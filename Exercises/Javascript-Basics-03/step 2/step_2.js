@@ -1,10 +1,10 @@
 var x = document.querySelector("p");
-var y = document.querySelectorAll("a");
+var y1 = document.getElementById("show");
+var y2 = document.getElementById("hide");
 
-console.log(y)
 
-y[0] = document.getElementById("show").addEventListener("click",function(){ myfunction(false) });
-y[1] = document.getElementById("hide").addEventListener("click",function(){ myfunction(true) });
+y1.addEventListener("click",function(){ myfunction(false) });
+y2.addEventListener("click",function(){ myfunction(true) });
 
 function myfunction(isHiden){
     console.log(isHiden);
