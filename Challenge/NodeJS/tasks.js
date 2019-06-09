@@ -38,7 +38,8 @@ function startApp(name){
 var array=['what is node.js','how you can use it.','try it yourself and never give up'];
 
 function onDataReceived(text) {
-  console.log(text);
+  console.log(text)
+  var lenght = text.length;
   
   if (text === 'quit\n'){
     quit();
@@ -49,6 +50,8 @@ function onDataReceived(text) {
   else if(text === 'list\n') {
     list();
   }
+  else if(text.trim().slice(0,3)=== 'add'){
+    add(text,lenght);}
   
   else if (text === 'exit\n'){
     quit();
@@ -116,6 +119,21 @@ function list(text){
   for (var i=0 ;i<array.length;i++){
     console.log((i+1)*1+'-'+array[i])
   }}
+  /**
+ * add function
+ *
+ * @returns {void}
+ */
+  function add(x,l){
+    if (l>5){
+      array.push(x.trim().substring(4,l))
+    }
+    else{
+      console.log('error')
+    }
+    
+  }
+  
 
   
 
