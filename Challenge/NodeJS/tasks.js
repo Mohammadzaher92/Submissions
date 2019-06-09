@@ -52,7 +52,11 @@ function onDataReceived(text) {
   }
   else if(text.trim().slice(0,3)=== 'add'){
     add(text,lenght);}
-  
+
+  else if (text.trim().slice(0,6) === 'remove') {
+      remove(text);
+    }
+
   else if (text === 'exit\n'){
     quit();
   }
@@ -134,7 +138,26 @@ function list(text){
     
   }
   
-
+  /**
+ * remove function
+ * you can remove any task you add in addtion to the basic tasks!!
+ *
+ * @returns {void}
+ */
+function remove(n){
+  var number = n.charAt(7);
+  if( n=='remove\n'){
+    array.splice(array.length-1,1)
+  }
+  else if(number>array.length){
+    console.log('Please enter the right numberof task to remove')
+  }
+  else{
+  for (number;number<array.length+1;number++){
+    array.splice(number-1,1)
+    break;
+  }}
+}
   
 
 // The following line starts the application
