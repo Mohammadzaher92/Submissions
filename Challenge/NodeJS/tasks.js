@@ -38,8 +38,8 @@ function onDataReceived(text) {
   if (text === 'quit\n'){
     quit();
   }
-  else if (text === 'help\n'){
-    help ();
+  else if (text.trim().slice(0,4)  === 'help'){
+    help();
   }
   
   else if (text === 'exit\n'){
@@ -93,7 +93,9 @@ function quit(){
  */
 
 function help (){
-  console.log('UnkownCommand\n' + 'hello\n' + 'quit\n');
+  //console.log( 'UnkownCommand\n' + 'hello\n' + 'quit\n');
+  console.log('You have seven commads:\n1-hello\n2-quit\n3-exit\n4-list\n5-add\n6-remove\n7-help')
+
 }
 
 // The following line starts the application
