@@ -33,13 +33,21 @@ function startApp(name){
  * @param  {string} text data typed by the user
  * @returns {void}
  */
+
+
+var array=['what is node.js','how you can use it.','try it yourself and never give up'];
+
 function onDataReceived(text) {
-  console.log(text)
+  console.log(text);
+  
   if (text === 'quit\n'){
     quit();
   }
   else if (text.trim().slice(0,4)  === 'help'){
     help();
+  }
+  else if(text === 'list\n') {
+    list();
   }
   
   else if (text === 'exit\n'){
@@ -77,7 +85,8 @@ function hello(t){
 }
 
 
-/**
+/**  var lenght = text.length;
+
  * Exits the application
  *
  * @returns {void}
@@ -97,6 +106,18 @@ function help (){
   console.log('You have seven commads:\n1-hello\n2-quit\n3-exit\n4-list\n5-add\n6-remove\n7-help')
 
 }
+/**
+ * list function
+ * Show all the tasks that you should be done!!!
+ *
+ * @returns {void}
+ */
+function list(text){
+  for (var i=0 ;i<array.length;i++){
+    console.log((i+1)*1+'-'+array[i])
+  }}
+
+  
 
 // The following line starts the application
 startApp("Mohammad Zaher Alnajjar")
