@@ -51,6 +51,10 @@ function startApp(name){
     else if (array[0]=== 'list'){
       list();
     }
+    else if (array[0]=== 'add'){
+      add(text,array);
+
+    }
 
     else{
       unknownCommand(text);
@@ -103,6 +107,16 @@ function startApp(name){
     for (var i = 0 ;i<array1.length;i++){
       console.log(i+1+')'+array1[i])
     }
+  }
+  function add (t1,arr){console.log(t1)
+
+    if(t1=='add\n'){
+      console.log('error')}
+      else {
+        array1.push(arr.slice(1).join(" "))
+      }
+
+    
   }
   
   // The following line starts the application
