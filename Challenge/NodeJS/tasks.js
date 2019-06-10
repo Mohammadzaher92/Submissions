@@ -58,6 +58,9 @@ function startApp(name){
     else if (array[0]=== 'remove'){
       remove(text)
     }
+    else if (array[0]=== 'edit'){
+      edit(text,array);
+    }
 
     else{
       unknownCommand(text);
@@ -135,6 +138,20 @@ function startApp(name){
 else{
   console.log("enter the right number")
 }
+  }
+  function edit(t1,arr){
+    if(t1=='edit\n'){
+      console.log('error')
+    }
+    else if(isNaN(arr[1])){
+      array1.splice(array1.length-1,1,arr.slice(1).join(' '))
+    }
+    else if(arr[1]<=array1.length){
+      array1.splice(arr[1]-1,1,arr.slice(2).join(' '))
+    }
+    else{
+      console.log('enter the right number of task')
+    }
   }
   
   // The following line starts the application
