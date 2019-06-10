@@ -33,10 +33,11 @@ function startApp(name){
    * @param  {string} text data typed by the user
    * @returns {void}
    */
+  var array1 =['task1','task2','task3']
   function onDataReceived(text) {
-    console.log(text);
+    //console.log(text);
     var array =text.trim().split(" ")
-    console.log(array)
+    //console.log(array)
     if (text == 'quit\n' || text=="exit\n") {
       quit();
     }
@@ -46,6 +47,9 @@ function startApp(name){
     }
     else if (array[0] === 'help'){
       help ();
+    }
+    else if (array[0]=== 'list'){
+      list();
     }
 
     else{
@@ -94,6 +98,11 @@ function startApp(name){
    */
   function help(){
     console.log('quit\nexit\nhello')
+  }
+  function list(){
+    for (var i = 0 ;i<array1.length;i++){
+      console.log(i+1+')'+array1[i])
+    }
   }
   
   // The following line starts the application
