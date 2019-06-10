@@ -33,7 +33,10 @@ function startApp(name){
    * @param  {string} text data typed by the user
    * @returns {void}
    */
-  var array1 =['task1','task2','task3']
+  //var array1 =['task1','task2','task3']
+  var array1 =[{task:'task1',done:'no'},
+                {task:'task2',done:'no'},
+                {task:'task3',done:'no'},] 
   function onDataReceived(text) {
     //console.log(text);
     var array =text.trim().split(" ")
@@ -61,7 +64,12 @@ function startApp(name){
     else if (array[0]=== 'edit'){
       edit(text,array);
     }
-
+    else if (array[0]==='check'){
+      check(text,array);
+    }
+    else if (array[0]==='uncheck'){
+      uncheck(text,array);
+    }
     else{
       unknownCommand(text);
     }
@@ -111,15 +119,23 @@ function startApp(name){
   }
   function list(){
     for (var i = 0 ;i<array1.length;i++){
-      console.log(i+1+')'+array1[i])
+      //console.log(i+1+')'+array1[i])
+      if(array1[i].done=='no'){
+      console.log(i+1+')'+'[]'+array1[i].task)
     }
+    else{
+      console.log(i+1+')'+'[✓]'+array1[i].task)
+    }
+  }
+
   }
   function add (t1,arr){console.log(t1)
 
     if(t1=='add\n'){
       console.log('error')}
       else {
-        array1.push(arr.slice(1).join(" "))
+        //array1.push(arr.slice(1).join(" "))
+        array1.push({task:arr.slice(1).join(" "),done:'no'})
       }
 
     
@@ -144,15 +160,40 @@ else{
       console.log('error')
     }
     else if(isNaN(arr[1])){
-      array1.splice(array1.length-1,1,arr.slice(1).join(' '))
+      //array1.splice(array1.length-1,1,arr.slice(1).join(' '))
+      array1.splice(array1.length-1,1,{task:arr.slice(1).join(' '),done:'no'})
     }
     else if(arr[1]<=array1.length){
-      array1.splice(arr[1]-1,1,arr.slice(2).join(' '))
+      //array1.splice(arr[1]-1,1,arr.slice(2).join(' '))
+      array1.splice(array1.length-1,1,{task:arr.slice(2).join(' '),done:'no'})
     }
     else{
       console.log('enter the right number of task')
     }
   }
-  
+  function check(t1,arr){
+    if (t1== 'check\n'){
+      console.log('error')
+    }
+    else if(arr[1]<=array1.length){
+      array1[arr[1]-1].done='yes'
+      //console.log(array1[arr[1]-1].done)
+    }
+    else{
+      console.log('enter the right number of task')
+    }
+  }
+  function uncheck(t1,arr){
+    if (t1== 'uncheck\n'){
+      console.log('error')
+    }
+    else if(arr[1]<=array1.length){
+      array1[arr[1]-1].done='no'
+      //console.log(array1[arr[1]-1].done)
+    }
+    else{
+      console.log('enter the right number of task')
+    }
+  }
   // The following line starts the application
   startApp("zaher alnajjar")
