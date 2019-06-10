@@ -104,7 +104,7 @@ function startApp(name){
    * function help display all coomand
    */
   function help(){
-    console.log('quit\nexit\nhello')
+    console.log('quit\nexit\nhello\nadd\nremove\nlist')
   }
   function list(){
     for (var i = 0 ;i<array1.length;i++){
