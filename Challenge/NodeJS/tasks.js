@@ -82,6 +82,9 @@ function startApp(name){
     console.log('Quitting now, goodbye!')
     process.exit();
   }
+  /**
+   * function help display all coomand
+   */
   function help(){
     console.log('quit\nexit\nhello')
   }
