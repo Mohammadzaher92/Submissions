@@ -150,7 +150,7 @@ function remove(n){
     array.splice(array.length-1,1)
   }
   else if(number>array.length){
-    console.log('Please enter the right numberof task to remove')
+    console.log('Please enter the right number of task to remove')
   }
   else{
   for (number;number<array.length+1;number++){
