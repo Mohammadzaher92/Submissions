@@ -55,6 +55,9 @@ function startApp(name){
       add(text,array);
 
     }
+    else if (array[0]=== 'remove'){
+      remove(text)
+    }
 
     else{
       unknownCommand(text);
@@ -117,6 +120,19 @@ function startApp(name){
       }
 
     
+  }
+  function remove (t1){
+    if(t1.trim()=='remove'){
+      array1.pop()
+    }
+    else if (t1.trim()=='remove 1'){
+      array1.splice(0,1)
+
+    }
+    else if (t1.trim()=='remove 2'){
+      array1.splice(1,1)
+    }
+
   }
   
   // The following line starts the application
