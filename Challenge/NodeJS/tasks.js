@@ -132,7 +132,9 @@ function startApp(name){
     else if (t1.trim()=='remove 2'){
       array1.splice(1,1)
     }
-
+else{
+  console.log("enter the right number")
+}
   }
   
   // The following line starts the application
