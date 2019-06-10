@@ -41,7 +41,7 @@ function startApp(name){
       quit();
     }
     else if(array[0] === 'hello'){
-      hello(array);
+      hello(array,text);
       
     }
     else if (text === 'help\n'){
@@ -71,9 +71,13 @@ function startApp(name){
    *
    * @returns {void}
    */
-  function hello(t){
+  function hello(t,t1){
+    if (t1=='hello\n'){
+      console.log('hello!')
+    }
+    else{
     console.log('hello '+t.slice(1).join(' ')+'!')
-  }
+  }}
   
   
   /**
