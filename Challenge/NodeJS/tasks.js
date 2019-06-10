@@ -1,4 +1,3 @@
-
 /**
  * Starts the application
  * This is the function that is run when the app starts
@@ -9,30 +8,75 @@
  * @param  {string} name the name of the app
  * @returns {void}
  */
+
+
+/* define the pathnode if it exist or not */
+var pathnode;
+    if(process.argv[2]){
+         pathnode = process.argv[2];
+    }
+    else{
+         pathnode = 'database.json';
+    }
+
+var fs=require('fs');
+// task = JSON.parse(loading('database.json'));
+  
+
+
 function startApp(name){
-    process.stdin.resume();
-    process.stdin.setEncoding('utf8');
-    process.stdin.on('data', onDataReceived);
-    console.log(`Welcome to ${name}'s application!`)
-    console.log("--------------------")
+    if(!fs.existsSync(pathnode)){
+        storeData(array1,pathnode);
+        }
+   array1= JSON.parse(loading(pathnode));
+  process.stdin.resume();
+  process.stdin.setEncoding('utf8');
+  process.stdin.on('data', onDataReceived);
+  console.log(`Welcome to ${name}'s application!`)
+  console.log("--------------------")
+
+  
+   
+   
+}
+ //  load data from  database.json
+ const loading = (pathnode) => {
+    try {
+      return fs.readFileSync(pathnode, 'utf8')
+    }
+     catch (err) {
+      console.error(err)
+      return false
+    }
   }
-  
-  
-  /**
-   * Decides what to do depending on the data that was received
-   * This function receives the input sent by the user.
-   * 
-   * For example, if the user entered 
-   * ```
-   * node tasks.js batata
-   * ```
-   * 
-   * The text received would be "batata"
-   * This function  then directs to other functions
-   * 
-   * @param  {string} text data typed by the user
-   * @returns {void}
-   */
+
+//  save data in database.json when i type exit or quit.
+const storeData = (data, pathnode) => {
+    try {
+      fs.writeFileSync(pathnode, JSON.stringify(data))
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+
+
+/**
+ * Decides what to do depending on the data that was received
+ * This function receives the input sent by the user.
+ * 
+ * For example, if the user entered 
+ * ```
+ * node tasks.js batata
+ * ```
+ * 
+ * The text received would be "batata"
+ * 'This function  then directs to other functions
+ * 
+ * @param  {string} text data typed by the user
+ * @returns {void}
+ */
+
   //var array1 =['task1','task2','task3']
   var array1 =[{task:'task1',done:'no'},
                 {task:'task2',done:'no'},
@@ -109,6 +153,7 @@ function startApp(name){
    */
   function quit(){
     console.log('Quitting now, goodbye!')
+    storeData(array1, pathnode) ;
     process.exit();
   }
   /**
