@@ -34,11 +34,14 @@ function startApp(name){
    * @returns {void}
    */
   function onDataReceived(text) {
+    console.log(text);
+    var array =text.trim().split(" ")
+    console.log(array)
     if (text == 'quit\n' || text=="exit\n") {
       quit();
     }
-    else if(text === 'hello\n'){
-      hello();
+    else if(array[0] === 'hello'){
+      hello(array);
       
     }
     else if (text === 'help\n'){
@@ -68,8 +71,8 @@ function startApp(name){
    *
    * @returns {void}
    */
-  function hello(){
-    console.log('hello!')
+  function hello(t){
+    console.log('hello '+t.slice(1).join(' ')+'!')
   }
   
   
