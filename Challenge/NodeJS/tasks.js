@@ -44,7 +44,7 @@ function startApp(name){
       hello(array,text);
       
     }
-    else if (text === 'help\n'){
+    else if (array[0] === 'help'){
       help ();
     }
 
