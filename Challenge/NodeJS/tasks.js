@@ -39,7 +39,12 @@ function startApp(name){
     }
     else if(text === 'hello\n'){
       hello();
+      
     }
+    else if (text === 'help\n'){
+      help ();
+    }
+
     else{
       unknownCommand(text);
     }
@@ -76,6 +81,9 @@ function startApp(name){
   function quit(){
     console.log('Quitting now, goodbye!')
     process.exit();
+  }
+  function help(){
+    console.log('quit\nexit\nhello')
   }
   
   // The following line starts the application
