@@ -4,6 +4,8 @@ const express = require('express')
 
 // Set up the express app
 const app = express();
+// array of movies
+
 // get all todos
 app.get('/api/v1/todos', (req, res) => {
   res.status(200).send({
@@ -12,6 +14,12 @@ app.get('/api/v1/todos', (req, res) => {
     todos: db
   })
 });
+const movies = [
+  { title: 'Jaws', year: 1975, rating: 8 },
+  { title: 'Avatar', year: 2009, rating: 7.8 },
+  { title: 'Brazil', year: 1985, rating: 8 },
+  { title: 'الإرهاب والكباب‎', year: 1992, rating: 6.2 }
+]
 app.get('/',(req,res)=>{
     res.send('ok')
 })
@@ -42,8 +50,21 @@ app.get('/hello/:id?', (req,res)=>{
     }
 
 })
-    
+app.get('/movies/creat',(req,rest)=>{
 
+
+})
+app.get('/movies/read',(req,res)=> {
+res.send({status:200, data:movies})
+}) 
+
+app.get('/movies/edit',(req,res)=> {
+
+}) 
+
+app.get('/movies/delete',(req,res)=> {
+
+}) 
 const PORT = 4000;
 
 app.listen(PORT, () => {
