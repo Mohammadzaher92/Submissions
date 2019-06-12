@@ -20,6 +20,7 @@ const movies = [
   { title: 'Brazil', year: 1985, rating: 8 },
   { title: 'الإرهاب والكباب‎', year: 1992, rating: 6.2 }
 ]
+
 app.get('/',(req,res)=>{
     res.send('ok')
 })
@@ -54,10 +55,42 @@ app.get('/movies/creat',(req,rest)=>{
 
 
 })
-app.get('/movies/read',(req,res)=> {
-res.send({status:200, data:movies})
+app.get('/movies/read/by-date',(req,res)=> {
+res.send({status:200, data:movies.sort(function(a, b){
+  return a.year - b.year })
+
+
 }) 
 
+})
+app.get('/movies/read/by-rating',(req,res)=> {
+  res.send({status:200, data:movies.sort(function(a, b){
+    return b.rating - a.rating 
+  })
+  
+  
+  }) 
+})
+
+
+app.get('/movies/read/by-title',(req,res)=>{
+  res.send({status:200, data:
+      movies.sort(function(a,b) {
+          var x = a.title.toLowerCase();
+          var y = b.title.toLowerCase();
+          if(x<y)
+            return -1
+          else if(x>y)
+            return 1
+          else 
+            return 0;
+          //return x < y ? -1 : x > y ? 1 : 0;
+          //sort((a, b) => a.title.localeCompare(b.title))
+
+  })
+})
+})
+  
 app.get('/movies/edit',(req,res)=> {
 
 }) 
@@ -65,6 +98,16 @@ app.get('/movies/edit',(req,res)=> {
 app.get('/movies/delete',(req,res)=> {
 
 }) 
+app.get('/movies/read/id/:id',(req,res)=>{
+  const ID = req.params.id
+  console.log(ID)
+  if(ID>0&&ID<=movies.length){
+    res.send({status:200, data:movies[ID-1]})
+  }else{
+    res.send({status:404, error:true, message:'the movie '+ID+  ' does not exist'})
+  }
+  
+})
 const PORT = 4000;
 
 app.listen(PORT, () => {
