@@ -55,7 +55,7 @@ app.get('/hello/:id?', (req,res)=>{
 
 
 
-app.get('/movies/add' , (req, res) => {
+app.get('/movies/add' , (req, res) => { // i can use app.post as a verb
   var t =req.query.title
   var y =req.query.year
   var r =req.query.rating
@@ -122,7 +122,7 @@ app.get('/movies/read/by-title',(req,res)=>{
   })
 })
 })
-app.get('/movies/update/:ID',(req,res) => {
+app.get('/movies/update/:ID',(req,res) => { // i can use app.put as a verb
   let nID = req.params.ID
   let nTitle = req.query.title
   let nYear = req.query.year
@@ -161,7 +161,7 @@ app.get('/movies/update/:ID',(req,res) => {
   //   // }
 
   //   // })
-  app.get('/movies/delete/:id', (req, res) => {
+  app.get('/movies/delete/:id', (req, res) => { // i can use app.delete as a verb
     const ID = req.params.id
     for (i = 0; i <= movies.length; i++) {
         if (i == ID) {
