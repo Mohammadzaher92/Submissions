@@ -78,10 +78,15 @@ else if(!r || r==''|| isNaN(r)){
 }
 
  
-    
+  else{
   res.send({status:200, data:movies})}
-  
+}
 )
+
+app.get('/movies/read', (req, res) => {
+  res.send({ status: 200, data: movies });
+});
+
 app.get('/movies/read/by-date',(req,res)=> {
 res.send({status:200, data:movies.sort(function(a, b){
   return a.year - b.year })
@@ -122,9 +127,35 @@ app.get('/movies/edit',(req,res)=> {
 
 }) 
 
-app.get('/movies/delete',(req,res)=> {
 
-}) 
+  // app.get('/movies/delete/:ID',(req,res) => {
+  //   // var f= req.params.ID
+
+  //   // if (f> 0 && f < movies.length ) {
+  //   //     movies.splice(f-1, 1)
+  //   //     res.send({status:200, data: movies})
+  //   // }
+  //   // else {
+  //   //     res.send({status:404, error:true, message:'the movie <ID> does not exist'})
+  //   // }
+
+  //   // })
+  app.get('/movies/delete/:id', (req, res) => {
+    const ID = req.params.id
+    for (i = 0; i <= movies.length; i++) {
+        if (i == ID) {
+            movies.splice(ID - 1, 1)
+            res.send({ status: 200, data: movies })
+        }
+    }
+    res.send({ status: 404, error: true, message: 'the movie' + ID + 'does not exist' })
+
+
+
+});
+
+  
+ 
 app.get('/movies/read/id/:id',(req,res)=>{
   const ID = req.params.id
   console.log(ID)
