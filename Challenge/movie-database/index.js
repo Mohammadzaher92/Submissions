@@ -51,10 +51,37 @@ app.get('/hello/:id?', (req,res)=>{
     }
 
 })
-app.get('/movies/creat',(req,rest)=>{
 
 
-})
+
+
+app.get('/movies/add' , (req, res) => {
+  var t =req.query.title
+  var y =req.query.year
+  var r =req.query.rating
+  movies.push({title:t,year:y,rating:r})
+  if(t=="" || y==""){
+    return(res.send({status:403, error:true, message:'you cannot create a movie without providing a title and a year'}))
+}
+else if(y.length !== 4){
+    return(res.send({status:403, error:true, message:'you cannot create a movie without providing a title and a year'}))
+}
+else if(isNaN(y)){
+    return(res.send({status:403, error:true, message:'you cannot create a movie without providing a title and a year'}))
+}
+else if(!r || r==''|| isNaN(r)){
+    movies.push({title:t,year:y,rating: 4})
+    res.send({status:200, data:movies});
+
+
+
+}
+
+ 
+    
+  res.send({status:200, data:movies})}
+  
+)
 app.get('/movies/read/by-date',(req,res)=> {
 res.send({status:200, data:movies.sort(function(a, b){
   return a.year - b.year })
