@@ -122,10 +122,31 @@ app.get('/movies/read/by-title',(req,res)=>{
   })
 })
 })
-  
-app.get('/movies/edit',(req,res)=> {
+app.get('/movies/update/:ID',(req,res) => {
+  let nID = req.params.ID
+  let nTitle = req.query.title
+  let nYear = req.query.year
+  let nRating = req.query.rating
 
-}) 
+  function update(n, b) {
+      if(n !== undefined) {
+          movies[nID-1][b] = n
+      }
+  }
+
+  if(nID > 0 && nID <= movies.length ) {
+      update(nTitle, 'title')
+      update(nYear, 'year')
+      update(nRating, 'rating')
+      res.send({status:200, message: movies})
+  }
+  else {
+      res.send({status:404, error:true, message:'the movie ID' +'does not exist'})
+  }
+})
+  
+
+
 
 
   // app.get('/movies/delete/:ID',(req,res) => {
