@@ -138,7 +138,7 @@ app.get('/movies/update/:ID',(req,res) => { // i can use app.put as a verb
       update(nTitle, 'title')
       update(nYear, 'year')
       update(nRating, 'rating')
-      res.send({status:200, message: movies})
+      res.send({status:200, data: movies})
   }
   else {
       res.send({status:404, error:true, message:'the movie ID' +'does not exist'})
@@ -163,14 +163,14 @@ app.get('/movies/update/:ID',(req,res) => { // i can use app.put as a verb
   //   // })
   app.get('/movies/delete/:id', (req, res) => { // i can use app.delete as a verb
     const ID = req.params.id
-    for (i = 0; i <= movies.length; i++) {
-        if (i == ID) {
+   
+      if (ID>0 && ID <=movies.length) {
             movies.splice(ID - 1, 1)
             res.send({ status: 200, data: movies })
-        }
-    }
+       }
+  else{
     res.send({ status: 404, error: true, message: 'the movie' + ID + 'does not exist' })
-
+  }
 
 
 });
