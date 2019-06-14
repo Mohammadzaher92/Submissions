@@ -1,0 +1,86 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title></title>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<h1><a href="#"> 1 SoftWaer Market </a></h1>
+			<p> Welcome to 1 SoftWaer Market </a></p>
+
+
+		</div>
+		
+	</div>
+	<!-- end #header -->
+	<div id="menu">
+		<ul>
+			<li class="current_page_item">
+			<a href="index.html">Home</a></li>
+			<li><a href="AboutUs.html">About Us</a></li>
+			<li><a href="CallUs.html">Call Us</a></li>
+			
+		</ul>
+	</div>
+		<div id="sidebar">
+			<ul>
+				<li>
+					<form name="form1" id="sign_form" onsubmit="javascript: return validate('sign_form','email')"> 
+					<br/> <br/>
+		 <br>
+		<font color="white" size="3" > email: </font>
+		<input type="text" name="text1"><br/> <br/> 
+		 <br>
+		<font color="white" size="3" >Date:</font> 
+		<input type="text" name="text2" ><br/> <br/>
+		
+		<div id="notification"></div>
+		 <br>
+		<font color="white" size="3" > Name: </font>
+		<input name="limitedtextfield" type="text" onKeyDown="limitText(this.form.limitedtextfield,this.form.countdown,10);" 
+        onKeyUp="limitText(this.form.limitedtextfield,this.form.countdown,10);" maxlength="10"><br>
+        <font size="2" color="red">(Maximum characters: 10)<br>
+         You have <input readonly type="text" name="countdown" size="3" value="10"> characters left.</font>
+		 
+		 <br>
+		 <br>
+		 <font color="white" size="3" >Message Content:</font> 
+		 <textarea name="feedback" rows=5 cols=50></textarea>
+ 		
+		
+		<br>
+		<br>
+		<input type="submit" size="3" value="Send" name="submit"  onclick="ValidateEmail(document.form1.text1,document.form1.text2,document.form1.limitedtextfield,document.form1.feedback)"/><br/> 
+		</form> 
+				</li>
+					
+			</ul>
+		</div>
+	<p>Call Us</p>
+	<!-- end #page -->
+</div>
+	<div id="footer">
+		<p>Copyright 2015 . All rights reserved.</p>
+	</div>
+	<!-- end #footer -->
+	<script src="email-validation.js"></script>
+	<script language="javascript" type="text/javascript">
+function limitText(limitField, limitCount, limitNum) {
+	if (limitField.value.length > limitNum) {
+		limitField.value = limitField.value.substring(0, limitNum);
+	} else {
+		limitCount.value = limitNum - limitField.value.length;
+	}
+	
+	
+}
+</script>
+</body>
+</html>

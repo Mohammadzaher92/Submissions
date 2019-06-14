@@ -1,0 +1,70 @@
+<!DOCTYPE html >
+
+<!-- This document illustrates using the focus event
+     to prevent the user from changing a text field
+     -->
+<html xmlns = "http://www.w3.org/1999/xhtml">
+  <head> <title> The focus event </title>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <script type = "text/javascript">
+      <!--
+// The event handler function to compute the cost
+      function computeCost() {
+        Chrom = document.getElementById("Google").value;
+        Explorer = document.getElementById("IE").value;
+        Firfox = document.getElementById("Mozila").value;
+// Compute the cost
+        document.getElementById("cost").value = 
+         totalCost = Google * 3.49 + IE * 3.95 + 
+                     Mozila * 4.59;
+      }  //* end of computeCost
+      -->
+    </script>
+  </head>
+  <body>
+    <form action = "">
+      <h3> Softwaer Offer </h3>
+<!-- A bordered table for item orders -->
+<table border = "border">
+<!-- First, the column headings --> 
+        <tr>
+          <th> Product Name </th>
+          <th> Price </th>
+          <th> Quantity </th>
+        </tr>
+<!-- Now, the table data entries -->
+        <tr>
+          <th> Chrom  </th>
+          <td> $9</td>
+          <td> <input type = "text"  id = "Google"  
+                      size ="2" /> </td>
+        </tr>
+        <tr>
+          <th> Firfox  </th>
+          <td> $7 </td>
+          <td> <input type = "text"  id = "Mozila"  
+                size = "2" /> </td>
+        </tr> 
+        <tr>
+          <th> Explorer  </th>
+          <td> $5 </td>
+          <td> <input type = "text"  id = "IE"  
+                size = "2" /></td>
+        </tr>
+      </table>
+<!-- Button for precomputation of the total cost -->
+      <p>
+        <input type = "button"  value = "Total Cost" 
+               onclick = "computeCost();" />
+        <input type = "text"  size = "5"  id = "cost" 
+               onfocus = "this.blur();" />
+      </p>
+<!-- The submit and reset buttons -->
+<p>
+        <input type = "submit"  value = "Submit Order" /> 
+        <input type = "reset"  value = "Clear Order Form" />
+      </p>
+    </form>
+  </body>
+</html>
